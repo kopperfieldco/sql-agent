@@ -49,6 +49,8 @@ export async function createSSHTunnelIfNecessary(): Promise<void> {
     port: sourcePort
   }
 
-  await createTunnel({}, serverOptions, sshOptions, forwardOptions);
+  await createTunnel({
+    autoClose: true
+  }, serverOptions, sshOptions, forwardOptions);
   logger.info('Successfully established the ssh tunnel');
 }
